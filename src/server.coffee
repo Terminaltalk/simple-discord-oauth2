@@ -22,7 +22,4 @@ server = new Server
             methods : "GET,HEAD,PUT,PATCH,POST,DELETE"
         }
 
-
-
-
 server.start()
