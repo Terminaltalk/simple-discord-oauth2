@@ -1,4 +1,4 @@
-# Simple Discord Oauth2
+# 📄 Simple Discord Oauth2
 ## Simple Discord Oauth2 login for educational purposes
 
 <p align="center">
