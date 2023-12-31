@@ -9,6 +9,16 @@ router = Router()
 require("../middleware/oauth2")(router)
 
 router.get "/api/callback", passport.authenticate("discord", failureRedirect: "/api/login"), (req, res) ->
+    console.log req.user
+    req.session.user = userid : req.user.id, username : req.user.username, avatarid : req.user.avatar
+    defaultOptions =
+            maxAge : 90000
+            httpOnly : true
+            signed : true
+    res.cookie "userid", req.session.user.id, defaultOptions
+    res.cookie "username", req.session.user.username, defaultOptions
+    res.cookie "avatarid", req.session.user.avatarid, defaultOptions
+    console.log req.cookies
     res.redirect "/dashboard" 
 
 exports.default = router

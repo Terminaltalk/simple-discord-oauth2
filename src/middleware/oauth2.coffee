@@ -2,11 +2,14 @@ DiscordStrategy = require("passport-discord").Strategy
 passport = require "passport"
 UserSchema = require "../models/UserSchema"
 session = require "express-session"
+cookieParser  = require "cookie-parser"
 module.exports = (router) ->
+  router.use cookieParser require('crypto').randomBytes(64).toString "hex" 
   router.use session
-    secret: "test"
-    resave: false
-    saveUninitialized: false
+    secret : require('crypto').randomBytes(64).toString "hex"
+    resave : false
+    saveUninitialized : true
+    cookie : expires: 60000
 
   router.use passport.initialize()
   router.use passport.session()
