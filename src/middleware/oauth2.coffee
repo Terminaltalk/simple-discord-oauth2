@@ -23,9 +23,8 @@ module.exports = (router) ->
   }, (accessToken, refreshToken, profile, cb) ->
         user = await UserSchema.findOne { _id : profile.id }
         if user
-          console.log user
+          cb null, profile
         else
-          console.log profile
-          await new UserSchema({ _id : profile.id, avatarID : profile.avatar }).save()
-        cb null, profile
+          await new UserSchema({ _id : profile.id, username : profile.username, avatarID : profile.avatar }).save()
+          cb null, profile
       

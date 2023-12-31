@@ -6,7 +6,6 @@ session = require "express-session"
 Strategy = require "passport-discord"
 mongoose = require "mongoose"
 config()
-require "./middleware/oauth2"
 server = new Server
         port : process.env.port
         settings : {
