@@ -1,0 +1,77 @@
+@import "vars.less";
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body {
+    background: @backgroundColor;
+    color: white;
+    margin:  0;
+}
+div.icons {
+    padding-top: 10px;
+    display: flexbox;
+    text-align: right;
+    i {
+        padding: 4px;
+        color: gray;
+        font-size: 50px;
+        transition: 0.3s;
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+div.container {
+    .profile-container {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 190px;
+        background: #121212;
+        font-family: Roboto;
+        padding: 40px;
+        border-radius: 6px;
+        max-width: 600px;
+    }
+
+    .profile-picture {
+        img {
+            width: 160px;
+            border-color: #5865F2;
+            border-radius: 100px;
+            border-style: solid;
+        }
+    }
+
+    .profile-info {
+        line-height: 7px;
+    }
+
+    button {
+        background: #ed5555;
+        color: white;
+        border-color: transparent;
+        border-radius: 6px;
+        font-size: 20px;
+        padding: 10px;
+        width: 130px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+footer {
+    font-family:'Lucida Sans';
+    color: gray;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    span {
+        a {
+            color: gray;
+            text-decoration: none;
+        }
+        text-decoration: underline dashed gray;
+    }
+}

@@ -1,8 +1,14 @@
-{ Router }  = require "@antibot/server"
-router = Router()
+{ Router } = require "@antibot/server"
 passport = require "passport"
-require "../middleware/oauth2"
+session = require "express-session"
+DiscordStrategy = require("passport-discord").Strategy
+UserSchema = require "../models/UserSchema"
 
-router.get "/api/callback", (req, res) -> passport.authenticate "discord", failureRedirect : "/login"
+router = Router()
+
+require("../middleware/oauth2")(router)
+
+router.get "/api/callback", passport.authenticate("discord", failureRedirect: "/api/login"), (req, res) ->
+    res.redirect "/dashboard" 
 
 exports.default = router
