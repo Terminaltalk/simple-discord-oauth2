@@ -17,7 +17,6 @@ router.get "/api/callback", passport.authenticate("discord", failureRedirect: "/
     res.cookie "userid", req.session.user.id, defaultOptions
     res.cookie "username", req.session.user.username, defaultOptions
     res.cookie "avatarid", req.session.user.avatarid, defaultOptions
-    console.log req.cookies
     res.redirect "/dashboard" 
 
 exports.default = router
